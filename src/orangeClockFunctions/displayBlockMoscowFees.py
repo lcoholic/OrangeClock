@@ -63,6 +63,8 @@ def setSecrets(SSID, PASSWORD):
 def getMoscowTime():
     return str(int(100000000 / float(datastore.get_price("USD"))))
 
+def getMoscowTimeEuro():
+    return str(int(100000000 / float(datastore.get_price("EUR"))))
 
 def getPriceDisplay(currency):
     price_str = f"{datastore.get_price(currency):,}"
@@ -212,6 +214,9 @@ def main():
             elif dispVersion2 == "mts2":
                 symbolRow2 = "M"
                 textRow2 = getMoscowTime()
+            elif dispVersion2 == "mte":
+                symbolRow2 = "L"
+                textRow2 = getMoscowTimeEuro()
             elif dispVersion2 == "fp1":
                 symbolRow2 = "E"
                 textRow2 = getPriceDisplay("USD")
